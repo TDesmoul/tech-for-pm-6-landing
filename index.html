@@ -124,16 +124,44 @@
             <p class="description">Ready to master Git and APIs!</p>
           </div>
         </div>
+
+        <div class="team-card">
+          <div class="card-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSK9TRF6r54pOaPGJALhplmrBwg0hyJTqc1w&s" alt="Student 1">
+          </div>
+          <div class="card-content">
+            <h3>Chuck</h3>
+            <p class="role">Norris</p>
+            <button id="chuck-btn">Refresh</button>
+            <p class="description" id="chuck-quote"></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <div data-tf-live="01KBDA7W9TG8M12ZPXY70MGYCE"></div>
   <!-- Footer -->
   <footer>
     <div class="container">
       <p>&copy; 2025 Tech For PM #6 | Building Better Product Managers</p>
     </div>
   </footer>
+
+  
+  <script src="//embed.typeform.com/next/embed.js"></script>
+  <script>
+    const btn = document.getElementById("chuck-btn");
+    const quoteContainer = document.getElementById("chuck-quote");
+    
+    btn.addEventListener('click', (event) => {
+      fetch('https://api.chucknorris.io/jokes/random')
+      .then(response => response.json())
+      .then(data => {
+        quoteContainer.innerText = data.value;
+      })
+    })
+  </script>
 </body>
 
 </html>
